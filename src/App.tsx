@@ -14,8 +14,9 @@ import { Home } from './pages/Home';
 import { Issue } from './pages/Issue';
 import { Issues } from './pages/Issues';
 import { NewIssue } from './pages/NewIssue';
-import { Register } from './pages/Register';
-import { Login } from './pages/Login';
+import { Register } from './pages/Entry/components/Register';
+import { Login } from './pages/Entry/components/Login';
+import { Entry } from './pages/Entry';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -36,13 +37,12 @@ const router = createBrowserRouter(
       <Route path={'/issue'} element={<Issue />} />
       <Route path={'/about'} element={<About />} />
       <Route
-        path={'/register'}
-        element={<Register />}
-      />
-      <Route
-        path={'/login'}
-        element={<Login /> }
-      />
+        path={'/'}
+        element={<Entry />}
+      >
+        <Route path={'login'} element={<Login />} />
+        <Route path={'register'} element={<Register />} />
+      </Route>
     </Route>
   ),
 );

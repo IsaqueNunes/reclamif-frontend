@@ -2,10 +2,11 @@
 import { FieldErrors, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import { RegisterFormValidation } from "../utils/validation";
-import type { RegisterForm } from "../utils/validation";
+import { RegisterFormValidation } from "../../../../utils/validation";
+import type { RegisterForm } from "../../../../utils/validation";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import styles from './register.module.css'
 
 export function Register() {
   const { register, handleSubmit } = useForm<RegisterForm>({
@@ -28,43 +29,48 @@ export function Register() {
   };
 
   return (
-    <main>
-      <h2>Register</h2>
-      <form onSubmit={handleSubmit(onSubmit, onErrorSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit, onErrorSubmit)}>
+      <div className={styles["input-container"]}>
         <label htmlFor="name">Name:</label>
         <input
           type="text"
           id="name"
           {...register("name")}
         />
+      </div>
 
+      <div className={styles["input-container"]}>
         <label htmlFor="email">Email:</label>
         <input
           type="text"
           id="email"
           {...register("email")}
         />
+      </div>
 
+      <div className={styles["input-container"]}>
         <label htmlFor="password">Password:</label>
         <input
           type="password"
           id="password"
           {...register("password")}
         />
+      </div>
 
+      <div className={styles["input-container"]}>
         <label htmlFor="confirmPassword">Confirm Password:</label>
         <input
           type="password"
           id="confirmPassword"
           {...register("confirmPassword")}
         />
-
-        <button type="submit">Registrar</button>
-      </form>
+      </div>
 
       <p>
         Já tem uma conta? <Link to={'/login'}>Faça login</Link>
       </p>
-    </main>
+
+      <button type="submit">Registrar</button>
+    </form>
   );
 }
