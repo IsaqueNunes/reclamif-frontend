@@ -7,6 +7,7 @@ import axios from 'axios';
 import styles from './new-issue.module.css'
 import { Button } from '../../components/Button';
 import { useAuth } from '../../utils/useAuth';
+import Input from '../../components/Input';
 
 export default function NewIssue() {
   const auth = useAuth();
@@ -40,23 +41,14 @@ export default function NewIssue() {
         onSubmit={handleSubmit(onSubmit, onErrorSubmit)}
         id={styles['new-issue-form']}
       >
-        <div>
-          <label htmlFor="title">Title:</label>
-          <input
-            type="text"
-            id="title"
-            {...register("title")}
-            className={styles['input-container']}
-          />
-        </div>
-        <div>
-          <label htmlFor="description">Description:</label>
-          <textarea
-            id="description"
-            {...register("description")}
-            className={styles['input-container']}
-          />
-        </div>
+        <Input
+          label={<label htmlFor="title">Title:</label>}
+          {...register("title")}
+        />
+        <Input
+          label={<label htmlFor="description">Description:</label>}
+          {...register("description")}
+        />
         <Button type="submit" variation='solid'>Submit</Button>
       </form>
     </main>
