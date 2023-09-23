@@ -1,16 +1,17 @@
+import { ReactNode, forwardRef } from 'react';
 import styles from './input.module.css'
 
-interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  label: string;
+type InputProps = {
+  label?: ReactNode;
 }
 
-export function Input({ label, ...rest }: InputProps) {
-  return (
-    <div className={styles['input-container']}>
-      <label className={styles['label']}>{label}</label>
-      <input className={styles['input']}
-        {...rest}
-      />
-    </div>
-  );
-}
+const Input = forwardRef<HTMLInputElement, InputProps>(({ label, ...props }: InputProps, ref) => (
+  <div className={styles['input-container']}>
+    {label}
+    <input ref={ref} className={styles['input']}
+      {...props}
+    />
+  </div>
+));
+
+export default Input;
