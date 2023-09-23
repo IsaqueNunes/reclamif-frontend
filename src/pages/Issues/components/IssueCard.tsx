@@ -6,6 +6,7 @@ import { FaUser } from 'react-icons/fa'
 import { MdNewReleases, MdModeEditOutline } from 'react-icons/md'
 
 import styles from './styles.module.css'
+import { useNavigate, useNavigation } from 'react-router-dom';
 
 type ClaimType = "SUGGESTION"
   | "PROBLEM"
@@ -34,6 +35,7 @@ function getRandom(min: number, max: number) {
 
 
 export function IssueCard({ issue }: IssueCardProps) {
+  const navigate = useNavigate();
   const transformDate = (date: string) => {
     const dateObject = new Date(date);
     const day = dateObject.getDate().toString().padStart(2, '0');
@@ -46,10 +48,14 @@ export function IssueCard({ issue }: IssueCardProps) {
     return `${day}/${month}/${year} - ${hours}:${minutes}`;
   };
 
+  function onNavigateToIssue() {
+    navigate(`/issue/${issue.id}`);
+  }
+
   return (
-    <li key={issue.id} className={styles["issue"]}>
+    <li key={issue.id} className={styles["issue"]} onClick={onNavigateToIssue}>
       <span className={styles["profile-icon"]}>
-        <FaUser size={"100%"}/>
+        <FaUser size={"100%"} />
       </span>
       <div className={styles["issue-info"]}>
         <h2>{issue.title}</h2>
