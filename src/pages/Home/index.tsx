@@ -32,7 +32,7 @@ export function Home() {
             type='button'
             variation='outline'
             onClick={handleNewIssue}
-            >
+          >
             Nova Reclamação
           </Button>
           <Button

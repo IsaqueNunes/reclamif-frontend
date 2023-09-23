@@ -1,7 +1,6 @@
-import { createContext, useContext, useMemo } from "react";
+import { ReactNode, createContext, useContext, useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLocalStorage } from "./useLocalStorage";
-// const AuthContext = createContext();
 
 type UserContextType = {
   user: any;
@@ -11,12 +10,13 @@ type UserContextType = {
 
 const AuthContext = createContext<UserContextType | null>(null);
 
-export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useLocalStorage("user", null);
+export const AuthProvider = ({ children }: { children: ReactNode }) => {
+  const [user, setUser] = useState<any>();
   const navigate = useNavigate();
 
   // call this function when you want to authenticate the user
-  const login = async (data) => {
+  const login = async (data: string) => {
+    console.log(data)
     setUser(data);
     navigate("/");
   };
@@ -29,9 +29,7 @@ export const AuthProvider = ({ children }) => {
 
   const value = useMemo(
     () => ({
-      user,
-      login,
-      logout
+      user, login, logout
     }),
     [user]
   );
@@ -39,5 +37,9 @@ export const AuthProvider = ({ children }) => {
 };
 
 export const useAuth = () => {
-  return useContext(AuthContext);
+  const context = useContext(AuthContext);
+
+  if (!context) throw new Error("useAuth should be used inside AuthProvider");
+
+  return context;
 };

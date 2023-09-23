@@ -4,7 +4,7 @@ import Logo from "../../assets/reclamif_logo.svg";
 
 import styles from './header.module.css'
 import { Button } from "../Button";
-import { AuthProvider } from "../../utils/useAuth";
+import { useAuth } from "../../utils/useAuth";
 
 const navItens = [
   { to: "/", label: "Home" },
@@ -14,8 +14,10 @@ const navItens = [
 ];
 
 export function Header() {
+  const { user, logout } = useAuth();
+
   return (
-    <AuthProvider>
+    <>
       <header id={styles.header}>
         <Link to="/" id={styles["site-title"]}>
           <img src={Logo} alt="Reclamif Logo" />
@@ -33,16 +35,20 @@ export function Header() {
               </li>
             ))}
             <li className={styles["header-option"]}>
-              <Link to="/login">
+              {user ? (<Link to="/">
+                <Button variation="solid" onClick={logout}>
+                  Logout
+                </Button>
+              </Link>) : (<Link to="/login">
                 <Button variation="solid">
                   Login
                 </Button>
-              </Link>
+              </Link>)}
             </li>
           </ul>
         </nav>
       </header>
       <Outlet />
-    </ AuthProvider>
+    </>
   );
 }
