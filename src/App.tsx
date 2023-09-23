@@ -10,12 +10,12 @@ import {
 
 import { About } from './pages/About';
 import { Header } from './components/Header';
-import { Home } from './pages/Home';
-import { Issue } from './pages/Issue';
-import { Issues } from './pages/Issues';
-import { NewIssue } from './pages/NewIssue';
-import { Register } from './pages/Entry/components/Register';
-import { Login } from './pages/Entry/components/Login';
+import Home from './pages/Home';
+import Issue from './pages/Issue';
+import Issues from './pages/Issues';
+import NewIssue from './pages/NewIssue';
+import Register from './pages/Entry/components/Register';
+import Login from './pages/Entry/components/Login';
 import { AuthProvider } from './utils/useAuth';
 
 const router = createBrowserRouter(

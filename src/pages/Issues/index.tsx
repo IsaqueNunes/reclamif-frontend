@@ -10,7 +10,7 @@ type LoaderData = {
   issues: IssueResponse[];
 };
 
-export function Issues() {
+export default function Issues() {
   const { issues } = useLoaderData() as LoaderData;
 
   const searchInputRef = useRef<HTMLInputElement>(null);
@@ -26,7 +26,7 @@ export function Issues() {
           <span>Loading</span>
         }>
           <Await
-            resolve={ issues }
+            resolve={issues}
             errorElement={<span>Something went wrong</span>}
           >
             {(resolvedIssues: IssueResponse[]) => {

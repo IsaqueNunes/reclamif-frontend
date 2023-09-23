@@ -8,7 +8,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import styles from './register.module.css'
 
-export function Register() {
+export default function Register() {
   const { register, handleSubmit } = useForm<RegisterForm>({
     resolver: yupResolver(RegisterFormValidation),
 

@@ -8,7 +8,7 @@ import styles from './new-issue.module.css'
 import { Button } from '../../components/Button';
 import { useAuth } from '../../utils/useAuth';
 
-export function NewIssue() {
+export default function NewIssue() {
   const auth = useAuth();
   const { register, handleSubmit } = useForm<NewIssueForm>({
     resolver: yupResolver(NewIssueFormValidation),

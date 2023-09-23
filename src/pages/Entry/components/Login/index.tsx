@@ -15,7 +15,7 @@ type User = {
   accessToken: string;
 }
 
-export function Login() {
+export default function Login() {
   const auth = useAuth();
 
   const { register, handleSubmit } = useForm<LoginForm>({
@@ -24,7 +24,7 @@ export function Login() {
 
   const onSubmit = async (data: LoginForm) => {
     const response = await axios.post<User>('http://localhost:3000/login', {
-			...data
+      ...data
     });
 
     auth?.login(response.data.accessToken);
@@ -62,7 +62,7 @@ export function Login() {
       </div>
 
       <p>
-        Não tem uma conta? <br/> <Link to={'/register'}>Faça seu cadastro</Link>
+        Não tem uma conta? <br /> <Link to={'/register'}>Faça seu cadastro</Link>
       </p>
 
       <Button type="submit" variation="solid">Login</Button>

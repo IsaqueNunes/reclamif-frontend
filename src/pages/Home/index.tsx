@@ -6,7 +6,7 @@ import Hero from '../../assets/hero.svg';
 import styles from './home.module.css';
 import { useAuth } from '../../utils/useAuth';
 
-export function Home() {
+export default function Home() {
   const navigate = useNavigate();
   const user = useAuth();
 
