@@ -39,7 +39,7 @@ export default function Login() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit, onErrorSubmit)}
-      className={styles["login-form"]}
+      id={styles["login-form"]}
     >
       <div className={styles["input-container"]}>
         <label htmlFor="email">Email:</label>
