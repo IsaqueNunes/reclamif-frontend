@@ -1,0 +1,53 @@
+.button {
+    cursor: pointer;
+    color: #7ED28C;
+    padding: .5em 1em;
+    border-radius: 5px;
+    transition: .3s;
+}
+
+.button-outline {
+    background: transparent;
+    border: 1px solid #7ED28C;
+}
+
+.button-outline:hover {
+    background-color: #7ed28c33;
+    cursor: pointer;
+}
+
+.button-outline:active {
+    background-color: #7ed28c66;
+}
+
+.button-solid {
+    background-color: #7ed28c;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    color: #000000;
+    mix-blend-mode: screen;
+    border: none;
+}
+
+.button-solid:hover {
+    background-color: #2F9E41;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.button-solid:active {
+    background-color: #2F9E4166;
+}
+
+.button-link {
+    background-color: transparent;
+    border-color: transparent;
+    box-shadow: none;
+}
+
+.button-link:hover {
+    background-color: #7ed28c33;
+    cursor: pointer;
+}
+
+.button-link:active {
+    background-color: #7ed28c66;
+}

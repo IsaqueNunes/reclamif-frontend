@@ -1,0 +1,17 @@
+.main-home {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap-reverse;
+}
+
+#hero {
+    max-height: 70dvh;
+    max-width: 40dvw;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}

@@ -1,0 +1,47 @@
+.issue {
+    list-style-type: none;
+    min-width: 80dvw;
+
+    border: 1px solid #2F9E41;
+    border-radius: 10px;
+    padding: 1.25rem;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.profile-icon {
+    border-radius: 50%;
+    background-color: gray;
+    overflow: hidden;
+    width: 6.25rem;
+    height: 6.25rem;
+    padding: 1em;
+}
+
+.issue-info {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 1em;
+}
+
+.datetime-info {
+    display: inline-flex;
+    flex-wrap: wrap;
+}
+
+.datetime {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.25em;
+}
+
+.issue-numbers>* {
+    display: flex;
+    align-items: center;
+    gap: .25em;
+}
