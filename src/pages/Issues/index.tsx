@@ -11,6 +11,29 @@ type LoaderData = {
 };
 
 export default function Issues() {
+  const data: IssueResponse[] = [
+    {
+      "id": 15,
+      "title": "Ventiladores barulhentos",
+      "description": "Os ventiladores da sala A104 estão fazendo muito barulho, principalmente quando estão em maior potência.",
+      "createdAt": "2023-09-22T17:32:20.016Z",
+      "editedAt": '',
+    },
+    {
+      "id": 16,
+      "title": "Computadores não funcionando",
+      "description": "Os computadores com o código de barras XXXXX, YYYYY e ZZZZZZ não estão funcionando corretamente. Eles estão apresentando carregamento infinito do sistema operacional.",
+      "createdAt": "2023-09-22T17:34:08.826Z",
+      "editedAt": '',
+    },
+    {
+      "id": 17,
+      "title": "Porta não fecha",
+      "description": "A porta da sala B109 não está fechando",
+      "createdAt": "2023-09-22T17:49:47.624Z",
+      "editedAt": '',
+    }
+  ]
   const { issues } = useLoaderData() as LoaderData;
 
   const searchInputRef = useRef<HTMLInputElement>(null);
@@ -22,7 +45,7 @@ export default function Issues() {
         <Button id='search-button' variation='solid'>Search</Button>
       </div>
       <ul id={styles["issue-list"]}>
-        <Suspense fallback={
+        {/* <Suspense fallback={
           <span>Loading</span>
         }>
           <Await
@@ -37,7 +60,12 @@ export default function Issues() {
               });
             }}
           </Await>
-        </Suspense>
+        </Suspense> */}
+        {
+          data.map((issue: IssueResponse) =>
+            (<IssueCard key={issue.id} issue={issue} />)
+          )
+        }
       </ul>
     </main>
   );
