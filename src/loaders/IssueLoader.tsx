@@ -1,10 +1,11 @@
 import { LoaderFunctionArgs } from "react-router-dom";
 import { IssueResponse } from "../pages/Issues/components/IssueCard";
+import axios from "axios";
 
-export async function todoLoader({
+export async function issueLoader({
   params,
 }: LoaderFunctionArgs): Promise<IssueResponse> {
-  const data: IssueResponse[] = [
+  const mock: IssueResponse[] = [
     {
       "id": 15,
       "title": "Ventiladores barulhentos",
@@ -27,8 +28,8 @@ export async function todoLoader({
       "editedAt": '',
     }
   ]
-  // let issue = getIssues(); Request here
-  let issue = data.find((issue) => issue.id === Number(params.issueId));
+
+  const issue = await axios.get(`http://localhost:3000/issue/${params.issueId}`).then((response) => response.data);
 
   if (!params.issueId) {
     throw new Error("Expected params.id");

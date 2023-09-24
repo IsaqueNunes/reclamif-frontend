@@ -17,7 +17,7 @@ import NewIssue from './pages/NewIssue';
 import Register from './pages/Entry/components/Register';
 import Login from './pages/Entry/components/Login';
 import { AuthProvider } from './utils/useAuth';
-import { todoLoader } from './loaders/IssueLoader';
+import { issueLoader } from './loaders/IssueLoader';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -36,7 +36,7 @@ const router = createBrowserRouter(
           return defer({ issues });
         }}
       />
-      <Route path={'/issue/:issueId'} loader={todoLoader} element={<Issue />} />
+      <Route path={'/issue/:issueId'} loader={issueLoader} element={<Issue />} />
       <Route path={'/about'} element={<About />} />
       <Route
         path={'/register'}

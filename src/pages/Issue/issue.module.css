@@ -1,0 +1,87 @@
+#issue-main {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 2rem 5rem;
+}
+
+#issue-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1em;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    padding: 1rem;
+
+}
+
+#issue-heading {
+    display: inline-flex;
+    align-items: center;
+    gap: 1em;
+}
+
+#issue-details {
+    display: flex;
+    flex-direction: column;
+}
+
+#datetime-info {
+    display: inline-flex;
+    flex-wrap: wrap;
+}
+
+.datetime {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.25em;
+}
+
+#message-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+
+    border-radius: 0.5rem;
+}
+
+.message-card {
+    display: inline-flex;
+    align-items: stretch;
+    justify-content: flex-end;
+
+    margin-left: 5%;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    gap: 1em;
+}
+
+.message-heading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.message-info {
+    width: 6.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.25em;
+}
+
+.message-author {
+    text-align: center;
+}
+
+.message-content {
+    flex-grow: 1;
+    overflow: auto;
+    padding-left: 1rem;
+    border-left: 1px solid #ccc;
+    overflow-wrap: break-word;
+}

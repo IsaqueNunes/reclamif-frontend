@@ -42,11 +42,15 @@ export default function NewIssue() {
         id={styles['new-issue-form']}
       >
         <Input
-          label={<label htmlFor="title">Title:</label>}
+          label={
+            <label htmlFor="title">Title:</label>
+          }
           {...register("title")}
         />
         <Input
-          label={<label htmlFor="description">Description:</label>}
+          label={
+            <label htmlFor="description">Description:</label>
+          }
           {...register("description")}
         />
         <Button type="submit" variation='solid'>Submit</Button>

@@ -7,6 +7,7 @@ import { MdNewReleases, MdModeEditOutline } from 'react-icons/md'
 
 import styles from './styles.module.css'
 import { useNavigate, useNavigation } from 'react-router-dom';
+import { Avatar } from '../../../components/Avatar';
 
 type ClaimType = "SUGGESTION"
   | "PROBLEM"
@@ -15,12 +16,26 @@ type ClaimType = "SUGGESTION"
   | "DUPLICATE"
   | "DENIED";
 
+export type Message = {
+  id: number;
+  message: string;
+  sendAt: string;
+  editedAt: string;
+  claimant: {
+    name: string;
+  }
+}
+
 export type IssueResponse = {
   id: number;
   title: string;
   description: string;
   createdAt: string;
   editedAt: string;
+  claimant: {
+    name: string;
+  }
+  Message: Message[];
 };
 
 export type IssueCardProps = {
@@ -54,9 +69,7 @@ export function IssueCard({ issue }: IssueCardProps) {
 
   return (
     <li key={issue.id} className={styles["issue"]} onClick={onNavigateToIssue}>
-      <span className={styles["profile-icon"]}>
-        <FaUser size={"100%"} />
-      </span>
+      <Avatar />
       <div className={styles["issue-info"]}>
         <h2>{issue.title}</h2>
         {/* <p>{issue.description}</p> */}

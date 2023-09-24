@@ -12,15 +12,6 @@
     gap: 1.25rem;
 }
 
-.profile-icon {
-    border-radius: 50%;
-    background-color: gray;
-    overflow: hidden;
-    width: 6.25rem;
-    height: 6.25rem;
-    padding: 1em;
-}
-
 .issue-info {
     display: flex;
     flex-direction: column;

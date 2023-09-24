@@ -1,0 +1,9 @@
+.avatar {
+    display: block;
+    border-radius: 50%;
+    background-color: gray;
+    overflow: hidden;
+    width: 6.25rem;
+    height: 6.25rem;
+    padding: 1em;
+}
